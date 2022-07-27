@@ -4,8 +4,25 @@
 //////////////////////////////////////////////
 //GLOBAL VARS
 
-//length of the keys
-#define K_LEN 20
+//pre-defined random keys
+#define FOREACH_KEY(KEY) \
+	KEY(PaP13ErI7N9oOniRepAp) \
+	KEY(xr3gBthvdhvFhvB6iHUH) \
+        KEY(ygxbbBb7UUYUYGiubiuh) \
+        KEY(sacuycagb7Nun0u90m9I) \
+        KEY(IMIMi09i9ioinhbvdc5c) \
+        KEY(q65v76tb8n98u09mu9n8) \
+        KEY(nuyb8byn98uiyi8u9uBF) \
+        KEY(BD2d3VsBNIsfJO68dIby) \
+        
+#define GENERATE_ENUM(ENUM) ENUM,
+#define GENERATE_STRING(STRING) #STRING,
+enum KEY_ENUM {
+    FOREACH_KEY(GENERATE_ENUM)
+};
+static const char *RANDOM_KEY[] = {
+    FOREACH_KEY(GENERATE_STRING)
+};
 
 //maximum number of supported couples (total nodes = couples*2)
 #define C_MAX 4
